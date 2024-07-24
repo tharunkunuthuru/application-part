@@ -11,4 +11,5 @@ images:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-  service_account: 'application@bold-camera-429007-i5.iam.gserviceaccount.com'
+
+serviceAccount: 'application@bold-camera-429007-i5.iam.gserviceaccount.com'
