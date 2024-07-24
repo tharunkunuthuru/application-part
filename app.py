@@ -3,10 +3,10 @@ from google.cloud import storage
 import os
 
 app = Flask(__name__)
-app.secret_key = 'a9b8c7d6e5f4a3b2c1d0e9f8d7c6b5a4'
+app.secret_key = 'a9b8c7d6e5f4a3b2c1d0e9f8d7c6b5a4'  # Replace with the generated secret key
 
 # Dummy credentials
-users = {'tharun': '159523', 'sunny': '616325', 'prem': '428445'}
+users = {'tharun': '159523', 'prem': '475895', 'sunny': '745955'}
 
 # Configure Google Cloud Storage
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/tharu/Downloads/bold-camera-429007-i5-db9a9cd22bf5.json"
