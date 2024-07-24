@@ -3,6 +3,7 @@ FROM python:3.8-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
+ENV PORT=8080
 
 # Create a directory for the app
 WORKDIR /app
