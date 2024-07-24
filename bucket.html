@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bucket Contents</title>
+</head>
+<body>
+    <h2>Bucket Contents</h2>
+    <ul>
+        {% for blob in blobs %}
+        <li><a href="/folder/{{ blob.name }}">{{ blob.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
