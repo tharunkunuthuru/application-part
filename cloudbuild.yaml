@@ -8,3 +8,6 @@ steps:
 
 images:
   - 'gcr.io/$PROJECT_ID/myapp'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
