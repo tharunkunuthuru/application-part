@@ -1,13 +1,14 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/myapp', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/myapp-repo/myapp', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/myapp']
+    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/myapp-repo/myapp']
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'myapp', '--image', 'gcr.io/$PROJECT_ID/myapp', '--platform', 'managed', '--region', 'us-central1']
+    args: ['run', 'deploy', 'myapp', '--image', 'us-central1-docker.pkg.dev/$PROJECT_ID/myapp-repo/myapp', '--platform', 'managed', '--region', 'us-central1']
 
 images:
-  - 'gcr.io/$PROJECT_ID/myapp'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/myapp-repo/myapp'
 
 options:
   logging: CLOUD_LOGGING_ONLY
+  service_account: 'application@bold-camera-429007-i5.iam.gserviceaccount.com'
