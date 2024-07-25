@@ -66,7 +66,7 @@ def download(blob_name):
     try:
         if 'username' not in session:
             return redirect(url_for('login'))
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:/Users/tharu/Downloads/bold-camera-429007-i5-aed81e9089d9.json"  # Replace with the actual path to your service account key file
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'C:/Users/tharu/Downloads/bold-camera-429007-i5-aed81e9089d9.json' # Replace with the actual path to your service account key file
         storage_client = storage.Client()
         bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(blob_name)
