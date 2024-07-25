@@ -1,5 +1,5 @@
 import logging
-from flask import Flask, request, render_template, redirect, url_for, session
+from flask import Flask, request, render_template, redirect, url_for, session, send_file
 from google.cloud import storage
 import os
 
@@ -70,8 +70,9 @@ def download(blob_name):
         storage_client = storage.Client()
         bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(blob_name)
-        url = blob.generate_signed_url(expiration=3600)
-        return redirect(url)
+        file_path = f'/tmp/{blob_name}'  # Define the file path for temporary storage
+        blob.download_to_filename(file_path)  # Download the file to the temporary path
+        return send_file(file_path, as_attachment=True)  # Send the file as an attachment
     except Exception as e:
         app.logger.error(f"Error in download route: {e}")
         return "An error occurred", 500
