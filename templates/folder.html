@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Folder Contents</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder</title>
 </head>
 <body>
-    <h2>Folder Contents: {{ folder_name }}</h2>
+    <h1>Contents of {{ folder_name }}</h1>
     <ul>
-        {% for blob in blobs %}
-        <li><a href="/download/{{ blob.name }}">{{ blob.name }}</a></li>
-        {% endfor %}
+    {% for blob in blobs %}
+        <li>
+            <a href="{{ url_for('download', blob_name=blob.name) }}">{{ blob.name }}</a>
+        </li>
+    {% endfor %}
     </ul>
+    <a href="{{ url_for('bucket') }}">Back to bucket</a>
 </body>
 </html>
