@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "bold-camera-429007-i5",
+  "private_key_id": "aed81e9089d9f6322a6ae79bbada5c0cf4726e98",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDwWqA9QUs/0oH8\nHDn7QpV44DTF7iI1ET7YWAetLpl0r71tJMo1+WTU+h1e1ZPmkweHH2Nqqtu7Fb4p\nFVoUWXBzBgdFrKDxSGhE2faQEvBTfIWf9buikhTfUmQlNC0f4nX0RHvamrGjEpMO\nF2FeKzByd3B/KEI5fcyCMxrIIlPdXDn/OJV/vZzViKRspzveS44IgF2qy0JarPae\nCAkm2ILieIK+aKsIKi7p91ryAGIM0akvoP9sjGyNDBOVjvi2XNr+iME1Lhq2DzEm\nga15GnrTgMPYtH+MDURKuywbNWJ9Aff3gnI7k82ePIFC5+Abr4mEBxCYGHhUEpoj\nH+jnj1uhAgMBAAECggEABDN5UIjHIW7zAa6WntsrlKjKk1kVtPq/r/Vd8Pt7CCyY\nMYOumyHoTsauY71079dLDuQQD0m8PHllUP+ECw4DJqeI0gFx8LW0yNtMcXk7RSJM\njZ60cGOAROUCRhoy3bdOG35k8c25ZCHLezgSZhx4JNAModRYz/twaygshCoBcEGH\nP/Od3cF+ioeNRDQBQfqgOs4WZMhQfaiI3tlS7nd9fa25fLIiOoaFpnbxWGCbYCjY\na2q8pLQHlZ2TQT/roWrF1kVwx9W2K9BvInkiICzt04+OHsAuNVDMLTBUeXQ8vP/m\nzVJfPjzOpSKiTGmV9XLNiP+yPWrLSCp+xEuOY7/o/wKBgQD67TIPFQumPmtXE903\ne2IBsMbx7XPzScn/qnnVfc2CpZAxaECNtr54arejUtCZgn6Yiy+WHIpqz6ci3gfd\nL/O51gLpLnQ0c/fE1GjUZk6tgEoLR2Bl2oVK7Y9OccXT3GLOoj+5G+VsQbv50Ip7\nc4ZsDcDbLE04iOMSkYJXWfJPiwKBgQD1NrTh9i4Kss48FOa+U/cFtaDLFZIGGtNt\nFplQM4IgflcEQKzhY5QfwrhUNkWg0AB4ZESzhbeFyTQGxOXHiBu/X+J3Tum5OHVM\nKOqQmInfw8OWMdWBnTFgR/BiAx3xWqPmIF4yc11IO3nW4neuZhAWsKnULjd7eP5g\n12G+2hbnAwKBgAqruZxAld08/E2Yr6ijW5iczukM4whuk+OGeWXl0q6Coe4n887S\n/aibSTHt3KcakI2mJaDpl81RBVeLP6RdXK0Dd944toJgiCHbspWNwDzKntt57pSG\nRXLZRWXdmr8WuTD2X2Vc1VXUOc023BzB3e6May4m5SXJVHa+r19NmOtfAoGAD1oQ\ncwEdms/c94f7djj9gx7+5RgBn144lGDQ0mOXJv+h5QNDj4zTbjWborIPI+VB0ke8\nwVyCw9534mCbXiWYTx/qpruLCGyPc2gwX0MdhqPT7+hIzKeRusxmMUyuqDibgEHQ\ng+oTEf2fQCPHiGSdZz5CM6V9Fb7adiel1/QBcQ8CgYBKcppzgn5B9OZzMt4zK8E4\neUt1Zqase25kJhQjdSlkUi1v7UAHP8sWyLZrxa56XTH0sxTAHwOoahJWSpRYVciX\n460jI5ULnvQfhNuxOu6uX16K3PareuTKsPJAbb1/OlhHQp9wasM73oxdsAKpjPG/\n58ZsyVo7x7Nt9moJwP0aug==\n-----END PRIVATE KEY-----\n",
+  "client_email": "application@bold-camera-429007-i5.iam.gserviceaccount.com",
+  "client_id": "113354270617158505681",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/application%40bold-camera-429007-i5.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
