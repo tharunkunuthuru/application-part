@@ -17,10 +17,10 @@ COPY . /app
 WORKDIR /app
 
 # Copy the service account key into the container
-COPY path_to_your_service_account_key.json /app/service_account_key.json
+COPY "C:/Users/tharu/Downloads/bold-camera-429007-i5-aed81e9089d9.json" /app/service_account_key.json
 
 # Set environment variable for the credentials path
-ENV GOOGLE_APPLICATION_CREDENTIALS="C:/Users/tharu/Downloads/bold-camera-429007-i5-db9a9cd22bf5.json"
+ENV GOOGLE_APPLICATION_CREDENTIALS="/app/service_account_key.json"
 
 # Run the application
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
