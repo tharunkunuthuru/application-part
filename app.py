@@ -3,7 +3,6 @@ import os
 import tempfile
 from flask import Flask, request, render_template, redirect, url_for, session, send_file
 from google.cloud import storage
-from datetime import datetime
 
 app = Flask(__name__)
 
@@ -51,18 +50,8 @@ def bucket():
     try:
         if 'username' not in session:
             return redirect(url_for('login'))
-
         blobs = list_blobs_with_prefix(bucket_name, '')
-
-        # Group blobs by date
-        blobs_by_date = {}
-        for blob in blobs:
-            # Extract date from blob metadata (you might need to adjust based on how you store dates)
-            date_str = blob.updated.strftime("%Y-%m-%d")  
-            blobs_by_date.setdefault(date_str, []).append(blob)
-
-        return render_template('bucket.html', blobs_by_date=blobs_by_date)
-
+        return render_template('bucket.html', blobs=blobs)
     except Exception as e:
         app.logger.error(f"Error in bucket route: {e}")
         return "An error occurred", 500
