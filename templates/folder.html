@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Folder Contents: {{ folder_name }}</title>
+  <title> CSV File Content: {{ folder_name }}</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -56,7 +56,7 @@
   </style>
 </head>
 <body>
-  <h2>Folder Contents: {{ folder_name }}</h2>
+  <h2> CSV File Content: {{ folder_name }}</h2>
   <ul>
     {% for blob in blobs %}
       <li><a href="/download/{{ blob.name }}">{{ blob.name }}</a></li>
