@@ -1,22 +1,27 @@
 import logging
+import os
+import tempfile
 from flask import Flask, request, render_template, redirect, url_for, session, send_file
 from google.cloud import storage
-import os
 
 app = Flask(__name__)
-app.secret_key = 'a9b8c7d6e5f4a3b2c1d0e9f8d7c6b5a4'  # Replace with the generated secret key
 
-# Dummy credentials
+# Secret key from environment variable, with fallback for local development
+app.secret_key = os.environ.get('SECRET_KEY') or 'a9b8c7d6e5f4a3b2c1d0e9f8d7c6b5a4'
+
+# User credentials (Ideally, fetch from a secure database)
 users = {'tharun': 'venky@1245', 'prem': 'venky@12345', 'theja': 'sunny@6163'}
 
-# Configure Google Cloud Storage
-bucket_name = "processed_data112"
+# Google Cloud Storage configuration
+bucket_name = "processed_data112"  # Replace with your actual bucket name
 
+# Function to list blobs with a given prefix
 def list_blobs_with_prefix(bucket_name, prefix):
     storage_client = storage.Client()
     blobs = storage_client.list_blobs(bucket_name, prefix=prefix)
     return blobs
 
+# Routes for login/authentication
 @app.route('/')
 def login():
     try:
@@ -39,6 +44,7 @@ def do_login():
         app.logger.error(f"Error in do_login route: {e}")
         return "An error occurred", 500
 
+# Routes for bucket/folder listing
 @app.route('/bucket')
 def bucket():
     try:
@@ -61,21 +67,31 @@ def folder(folder_name):
         app.logger.error(f"Error in folder route: {e}")
         return "An error occurred", 500
 
+# Secure file download route
 @app.route('/download/<path:blob_name>')
 def download(blob_name):
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
     try:
-        if 'username' not in session:
-            return redirect(url_for('login'))
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'C:/Users/tharu/Downloads/bold-camera-429007-i5-aed81e9089d9.json' # Replace with the actual path to your service account key file
         storage_client = storage.Client()
         bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(blob_name)
-        file_path = f'/tmp/{blob_name}'  # Define the file path for temporary storage
-        blob.download_to_filename(file_path)  # Download the file to the temporary path
-        return send_file(file_path, as_attachment=True)  # Send the file as an attachment
+        
+        # Create a temporary file
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            file_path = temp_file.name
+            blob.download_to_filename(file_path)
+
+        # Send the file to the user
+        response = send_file(file_path, as_attachment=True, download_name=blob.name)
+
+        # Cleanup the temporary file
+        os.remove(file_path)
+        return response
     except Exception as e:
         app.logger.error(f"Error in download route: {e}")
         return "An error occurred", 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080) 
