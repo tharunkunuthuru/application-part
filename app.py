@@ -12,7 +12,7 @@ users = {'tharun': 'venky@12345', 'prem': 'sunny@6163', 'yash': 'prem@12345'}
 
 # Configure Google Cloud Storage
 bucket_name = "processed_data112"
-credentials_path = "C:/Users/tharu/Downloads/bold-camera-429007-i5-db9a9cd22bf5.json"
+credentials_path = "C:/Users/tharu/Downloads/bold-camera-429007-i5-aed81e9089d9.json"
 
 credentials = service_account.Credentials.from_service_account_file(
     credentials_path,
