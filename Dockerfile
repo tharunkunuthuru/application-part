@@ -1,26 +1,21 @@
-# Use the official Python image.
-# https://hub.docker.com/_/python
+# Use the official Python image from the Docker Hub
 FROM python:3.8-slim
 
 # Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV PORT=8080
 
-# Install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the content of the local src directory to the working directory
-COPY . /app
-
-# Set the working directory
+# Create a directory for the app
 WORKDIR /app
 
-# Copy the service account key into the container
-COPY bold-camera-429007-i5-aed81e9089d9.json /app/service_account_key.json
+# Copy the current directory contents into the container
+COPY . /app
 
-# Set environment variable for the credentials path
-ENV GOOGLE_APPLICATION_CREDENTIALS="/app/service_account_key.json"
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Run the application with increased timeout
+CMD ["gunicorn", "--timeout", "120", "-b", "0.0.0.0:8080", "app:app"]
