@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = 'a9b8c7d6e5f4a3b2c1d0e9f8d7c6b5a4'  # Replace with the generated secret key
 
 # Dummy credentials
-users = {'tharun': 'venky@1245', 'prem': 'venky@12345', 'theja': 'sunny@6163'}
+users = {'tharun': 'venky@12345', 'sunny': 'prem@125', 'yash': 'sunny@6163'}
 
 # Configure Google Cloud Storage
 bucket_name = "processed_data112"
