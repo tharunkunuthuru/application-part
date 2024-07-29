@@ -3,83 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign In</title> 
     <style>
         body {
-            font-family: 'Montserrat', sans-serif; /* Modern font choice */
+            font-family: Arial, sans-serif; 
+            background-color: #141414; /* Netflix background */
+            color: white;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(to bottom right, #c62828, #000000); /* Red/black gradient */
         }
 
-        form {
-            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px); /* Glassmorphism effect */
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
+            padding: 60px;
+            border-radius: 8px;
         }
 
         h1 {
-            text-align: center;
+            text-align: left;
+            color: #e50914; /* Netflix red */
+            font-size: 2.5em;
             margin-bottom: 30px;
-            color: #ff3d00; /* Bright red */
-            font-weight: 600;
-            text-shadow: 1px 1px 2px #000; /* Subtle shadow for depth */
         }
 
         label {
             display: block;
             margin-bottom: 8px;
-            color: #ddd; /* Light gray */
         }
 
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             margin-bottom: 20px;
-            border: 1px solid #555; /* Dark gray border */
-            border-radius: 6px;
-            background-color: rgba(255, 255, 255, 0.05); /* Subtle white for inputs */
-            color: #ddd;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease; /* Smooth border transition */
-        }
-
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: #ff3d00; /* Red border on focus */
-            outline: none;
+            border: none;
+            background-color: #333; /* Dark background for inputs */
+            color: white;
+            border-radius: 4px;
         }
 
         input[type="submit"] {
-            background-color: #ff3d00; 
+            background-color: #e50914; /* Netflix red */
             color: white;
-            padding: 14px 24px;
+            padding: 15px 20px;
             border: none;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
             width: 100%;
-            font-weight: 600;
-            transition: background-color 0.3s ease; /* Smooth background transition */
+            font-size: 1em;
+            font-weight: bold;
         }
 
         input[type="submit"]:hover {
-            background-color: #d32f2f; /* Darker red on hover */
+            background-color: #b90710; /* Darker red on hover */
         }
     </style>
 </head>
 <body>
-    <form action="/login" method="post">
-        <h1>Login</h1>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="Login">
-    </form>
+    <div class="login-container">
+        <h1>Sign In</h1>
+        <form action="/login" method="post">
+            <label for="username">Email or phone number</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Sign In">
+        </form>
+    </div>
 </body>
 </html>
