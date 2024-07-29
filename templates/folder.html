@@ -1,65 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CSV File Content: {{ folder_name }}</title>
+    <title>Reports</title>
     <style>
         body {
-            font-family: 'Montserrat', sans-serif; /* Modern font choice */
-            background: linear-gradient(to bottom right, #c62828, #000000); /* Red/black gradient */
-            color: #fff; /* White text */
+            font-family: Arial, sans-serif; /* Netflix-like font */
+            background-color: #141414; /* Dark background */
+            color: white;
             margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px; /* Add some padding for visual comfort */
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-size: 2.8em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+            color: #e50914; /* Netflix red */
         }
 
         ul {
             list-style: none;
             padding: 0;
             width: 80%;
-            max-width: 600px;
+            max-width: 800px; /* Wider for better report display */
         }
 
         li {
-            background-color: rgba(255, 255, 255, 0.1); /* Subtle white bg */
-            padding: 18px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.75); /* Darker background for reports */
+            padding: 25px; 
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+            transition: transform 0.2s, box-shadow 0.2s; /* Smoother transitions */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Align items on opposite ends */
+            align-items: center;
         }
 
         li:hover {
-            transform: translateY(-5px) scale(1.02); /* Lift and slight scale on hover */
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); 
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.6);
         }
 
-        a {
-            text-decoration: none;
-            color: #ff3d00; /* Bright red links */
+        .report-name {
+            font-size: 1.2em;
             font-weight: bold;
-            transition: color 0.3s ease;
+            color: white;
+            margin-right: 20px; /* Space between name and button */
         }
 
-        a:hover {
-            color: #ffcdd2; /* Light red on hover */
+        .download-button {
+            background-color: #e50914; /* Netflix red */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .download-button:hover {
+            background-color: #b90710; /* Darker red on hover */
         }
     </style>
 </head>
 <body>
-    <h2>CSV File Content: {{ folder_name }}</h2>
+    <h2>Available Reports</h2>
     <ul>
         {% for blob in blobs %}
-            <li><a href="/download/{{ blob.name }}">{{ blob.name }}</a></li>
+            <li>
+                <span class="report-name">{{ blob.name }}</span>
+                <a href="/download/{{ blob.name }}" class="download-button">Download</a>
+            </li>
         {% endfor %}
     </ul>
 </body>
