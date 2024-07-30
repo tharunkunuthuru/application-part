@@ -1,13 +1,13 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/myapp-repo/myapp', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/tharundocker/tharunapp', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/myapp-repo/myapp']
+    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/tharundocker/tharunapp']
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'myapp', '--image', 'us-central1-docker.pkg.dev/$PROJECT_ID/myapp-repo/myapp', '--platform', 'managed', '--region', 'us-central1']
+    args: ['run', 'deploy', 'tharunapp', '--image', 'us-central1-docker.pkg.dev/$PROJECT_ID/tharundocker/tharunapp', '--platform', 'managed', '--region', 'us-central1']
 
 images:
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/myapp-repo/myapp'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/tharundocker/tharunapp'
 
 options:
   logging: CLOUD_LOGGING_ONLY
